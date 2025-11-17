@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio: Modelagem da Curva de Aprendizagem</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <p>Sprint 4 – Matemática</p>
+        <h1>Modelagem da Curva de Aprendizagem</h1>
+      </header>
+
+      <section id="introducao">
+        <h2>O Desafio</h2>
+        <p>
+          O objetivo deste projeto é modelar o crescimento do conhecimento ao
+          longo do tempo de estudo. Para isso, usaremos uma função matemática e
+          exploraremos conceitos de cálculo para entender o processo de
+          aprendizado.
+        </p>
+        <p>
+          Vamos usar Limites, Derivadas e Integrais para representar o
+          conhecimento máximo, a velocidade de aprendizado e o total de
+          conhecimento acumulado.
+        </p>
+      </section>
+
+      <main>
+        <section id="modelo-logistico">
+          <h2>1. O Modelo de Aprendizagem (Função Logística)</h2>
+          <p>
+            Escolhemos a função logística, conforme sugerido no desafio, pois
+            ela representa bem as fases do aprendizado: um início lento, um
+            período de rápido crescimento e, finalmente, uma estabilização
+            (platô) quando o conhecimento máximo sobre o assunto é atingido.
+          </p>
+          <div class="formula-box">
+            <p>K(t) = 100 / (1 + e⁻⁰·²(ᵗ⁻¹⁰))</p>
+          </div>
+          <ul>
+            <li><strong>K(t):</strong> Nível de conhecimento (de 0 a 100).</li>
+            <li><strong>t:</strong> Tempo de estudo (ex: em semanas).</li>
+            <li>
+              <strong>100:</strong> O nível máximo de conhecimento (Limite).
+            </li>
+          </ul>
+          <h3>1.1 A Curva de Aprendizagem (Curva "S")</h3>
+          <canvas id="graficoAprendizagem"></canvas>
+        </section>
+
+        <section id="limite">
+          <h2>2. Limite (Conhecimento Máximo)</h2>
+          <p>
+            O conceito de **Limite** nos ajuda a definir o "teto" do
+            conhecimento. No nosso modelo, à medida que o tempo de estudo (t)
+            tende ao infinito (t → ∞), o nível de conhecimento K(t) se aproxima
+            de 100.
+          </p>
+          <div class="formula-box">
+            <p>lim K(t) = 100 (quando t → ∞)</p>
+          </div>
+          <p>
+            Isso representa a **capacidade máxima** ou o domínio total do
+            assunto dentro deste escopo de estudo. O aprendizado estabiliza
+            porque não há mais o que aprender (ou o aprendizado se torna
+            marginal).
+          </p>
+        </section>
+
+        <section id="derivadas">
+          <h2>3. Derivada (A Velocidade de Aprendizado)</h2>
+          <p>
+            A **Derivada (K'(t))** da nossa função nos diz a
+            <strong>velocidade</strong> ou a <strong>taxa</strong> com que o
+            conhecimento está sendo adquirido em qualquer instante 't'.
+          </p>
+          <div class="example">
+            <p>
+              Observando o gráfico da derivada, podemos ver claramente o "ponto
+              de inflexão" da curva S:
+            </p>
+            <ul>
+              <li>
+                A velocidade começa baixa (fase inicial, conceitos básicos).
+              </li>
+              <li>
+                Ela atinge seu <strong>pico máximo em t=10</strong> (fase de
+                aprendizado intenso).
+              </li>
+              <li>
+                Depois, a velocidade diminui e volta a zero (fase de
+                estabilização/platô).
+              </li>
+            </ul>
+          </div>
+          <canvas id="graficoVelocidade"></canvas>
+        </section>
+
+        <section id="integrais">
+          <h2>4. Integral (Conhecimento Acumulado)</h2>
+          <p>
+            A **Integral** é a operação inversa da derivada. Se a derivada é a
+            "velocidade" do aprendizado, a integral da velocidade (K'(t)) nos dá
+            o "total acumulado" de conhecimento.
+          </p>
+          <p>
+            Visualmente, a integral definida de 0 até um tempo 'T' é a
+            <strong>área sob a curva de velocidade (K'(t))</strong>. O valor
+            dessa área é exatamente o nível de conhecimento K(T) naquele
+            instante.
+          </p>
+          <div class="example">
+            <p>
+              <strong>Exemplo:</strong> A área total sob a curva de velocidade
+              (de t=0 até t=infinito) é igual a 100, que é o limite máximo de
+              conhecimento.
+            </p>
+          </div>
+          <canvas id="graficoIntegral"></canvas>
+        </section>
+      </main>
+
+      <footer>
+        <section id="conclusao">
+          <h2>Interpretação e Conclusão</h2>
+          <p>
+            A análise matemática da curva de aprendizado nos mostra padrões
+            importantes:
+          </p>
+          <ul>
+            <li>
+              <strong>Fase 1 (Início Lento):</strong> A velocidade (derivada) é
+              baixa. O esforço é alto, mas o conhecimento acumulado (K(t)) sobe
+              devagar.
+            </li>
+            <li>
+              <strong>Fase 2 (Aprendizado Intenso):</strong> A velocidade
+              (derivada) atinge seu pico. O conhecimento (K(t)) cresce
+              rapidamente.
+            </li>
+            <li>
+              <strong>Fase 3 (Platô/Estabilização):</strong> A velocidade
+              (derivada) cai para perto de zero. O conhecimento (K(t)) atinge o
+              limite (100).
+            </li>
+          </ul>
+          <p>
+            A <strong>"Requalificação"</strong>, mencionada no desafio,
+            significa iniciar uma <strong>nova curva de aprendizado</strong>.
+            Quando um profissional atinge o platô (limite) em uma habilidade,
+            ele precisa buscar um novo conhecimento, começando uma nova curva
+            "S" para se manter relevante.
+          </p>
+        </section>
+      </footer>
+    </div>
+
+    <script src="graficos.js"></script>
+  </body>
+</html>
